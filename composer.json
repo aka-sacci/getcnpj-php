@@ -1,0 +1,22 @@
+{
+    "name": "aka-sacci/getcnpj-php",
+    "description": "Consulta de dados referentes ao CNPJ online",
+    "license": "MIT",
+    "autoload": {
+        "psr-0": {
+            "Search" : "src/"
+        },
+        "psr-4": {
+            "AkaSacci\\GetcnpjPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "SACCI",
+            "email": "saccilucas@gmail.com"
+        }
+    ],
+    "require": {
+        "php" : ">=7.2.0"
+    }
+}
