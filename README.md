@@ -24,14 +24,5 @@ Search to a CNPJ and get the data!
 >$data = $mySearch->getDataFromCNPJ($sringCNPJ);
 
 
-## Test scripts
-
-To use the tests scripts, you must have the PHPUnit 8 or superior installed in yout project.
-
-To run the simpler test, use:
->  vendor/bin/phpunit vendor/aka-sacci/getcnpj-php/tests --colors=always
-
-To save the results in a TXT, use:
->  vendor/bin/phpunit vendor/aka-sacci/getcnpj-php/tests --testdox-text=tests_report.txt
 
 

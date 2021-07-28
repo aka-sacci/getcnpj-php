@@ -1,32 +1,33 @@
 <?php
 
+namespace AkaSacci\tests;
+
 use PHPUnit\Framework\TestCase;
 use  AkaSacci\GetcnpjPhp\Search;
 
-
-class SearchTest extends TestCase {
-
+class SearchTest extends TestCase
+{
     /**
     * @dataProvider dadosTeste
     */
-
-    public function testGetDataFromCNPJDefaultUsage(string $input, $esperado){
+    public function testGetDataFromCNPJDefaultUsage(string $input, $esperado)
+    {
         $resultado = new Search();
         $resultado = $resultado->getDataFromCNPJ($input);
         $esperado = json_decode($esperado);
-        $esperado = json_encode($esperado); //devido às quebras de linha, o esperado deve ser submetido à um decode e encode
+        $esperado = json_encode($esperado);
+        //devido às quebras de linha, o esperado deve ser submetido à um decode e encode
         $this->assertEquals($esperado, json_encode($resultado));
-        
+
         /*
-        vendor/bin/phpunit diretório-de-testes/ 
+        vendor/bin/phpunit diretório-de-testes/
         //--colors=always deixa coloridinho uiui
         //--testdox-text=nome-do-arq.txt retorna a analise do arquivo em um txt
         */
-
-
     }
 
-    public function dadosTeste(){
+    public function dadosTeste()
+    {
         return [
             "GET CNPJ Prefeitura de Bom Jesus dos Perdões" => [
                 "52359692000162",
@@ -80,148 +81,107 @@ class SearchTest extends TestCase {
               "database": true
             }
           }'
-        ],
+            ],
 
-        "GET CNPJ DELL" => [
-            "72381189000110",
+            "GET CNPJ JHONATAN CARECA" => [
+            "25072293000143",
             '{
+              "atividade_principal": [
+                {
+                  "text": "Instalação e manutenção elétrica",
+                  "code": "43.21-5-00"
+                }
+              ],
+              "data_situacao": "24/06/2016",
+              "tipo": "MATRIZ",
+              "nome": "JHONATAN TABAJARA DE OLIVEIRA 39628061801",
+              "uf": "SP",
+              "telefone": "(11) 5554-6146",
+              "email": "jhonatanjt.9@gmail.com",
+              "atividades_secundarias": [
+                {
+                  "text": "Reparação e manutenção de computadores e de equipamentos periféricos",
+                  "code": "95.11-8-00"
+                },
+                {
+                  "text": "Comércio varejista de outros artigos de uso pessoal e doméstico não especificados anteriormente",
+                  "code": "47.59-8-99"
+                }
+              ],
+              "qsa": [
+                
+              ],
+              "situacao": "ATIVA",
+              "bairro": "MASCATE",
+              "logradouro": "R CAPELA DO DIVINO",
+              "numero": "40",
+              "cep": "12.960-000",
+              "municipio": "NAZARE PAULISTA",
+              "porte": "MICRO EMPRESA",
+              "abertura": "24/06/2016",
+              "natureza_juridica": "213-5 - Empresário (Individual)",
+              "fantasia": "PROTEGIDOS",
+              "cnpj": "25.072.293/0001-43",
+              "ultima_atualizacao": "2021-06-26T18:49:05.987Z",
+              "status": "OK",
+              "complemento": "",
+              "efr": "",
+              "motivo_situacao": "",
+              "situacao_especial": "",
+              "data_situacao_especial": "",
+              "capital_social": "1000.00",
+              "extra": {
+                
+              },
+              "billing": {
+                "free": true,
+                "database": true
+              }
+            }'
+            ],
+            "GET CNPJ Cãobeleleiro Banho e Tosa" => [
+              "24.048.051/0001-51",
+              '{
                 "atividade_principal": [
                   {
-                    "text": "Suporte técnico, manutenção e outros serviços em tecnologia da informação",
-                    "code": "62.09-1-00"
+                    "text": "Higiene e embelezamento de animais domésticos",
+                    "code": "96.09-2-08"
                   }
                 ],
-                "data_situacao": "03/11/2005",
+                "data_situacao": "26/01/2016",
                 "tipo": "MATRIZ",
-                "nome": "DELL COMPUTADORES DO BRASIL LTDA",
-                "uf": "RS",
-                "telefone": "(51) 3274-5500",
-                "email": "br_tax@dell.com",
+                "nome": "GERSON PINTO SACCI 34580082842",
+                "uf": "SP",
+                "telefone": "(11) 4350-8128",
                 "atividades_secundarias": [
                   {
-                    "text": "Fabricação de equipamentos de informática",
-                    "code": "26.21-3-00"
-                  },
-                  {
-                    "text": "Tratamento e disposição de resíduos não-perigosos",
-                    "code": "38.21-1-00"
-                  },
-                  {
-                    "text": "Representantes comerciais e agentes do comércio de mercadorias em geral não especializado",
-                    "code": "46.19-2-00"
-                  },
-                  {
-                    "text": "Comércio atacadista de equipamentos de informática",
-                    "code": "46.51-6-01"
-                  },
-                  {
-                    "text": "Comércio atacadista de suprimentos para informática",
-                    "code": "46.51-6-02"
-                  },
-                  {
-                    "text": "Comércio varejista especializado de equipamentos e suprimentos de informática",
-                    "code": "47.51-2-01"
-                  },
-                  {
-                    "text": "Desenvolvimento e licenciamento de programas de computador não-customizáveis",
-                    "code": "62.03-1-00"
-                  },
-                  {
-                    "text": "Consultoria em tecnologia da informação",
-                    "code": "62.04-0-00"
-                  },
-                  {
-                    "text": "Tratamento de dados, provedores de serviços de aplicação e serviços de hospedagem na internet",
-                    "code": "63.11-9-00"
-                  },
-                  {
-                    "text": "Portais, provedores de conteúdo e outros serviços de informação na internet",
-                    "code": "63.19-4-00"
-                  },
-                  {
-                    "text": "Outras sociedades de participação, exceto holdings",
-                    "code": "64.63-8-00"
-                  },
-                  {
-                    "text": "Pesquisa e desenvolvimento experimental em ciências físicas e naturais",
-                    "code": "72.10-0-00"
-                  },
-                  {
-                    "text": "Outras atividades de publicidade não especificadas anteriormente",
-                    "code": "73.19-0-99"
-                  },
-                  {
-                    "text": "Atividades de intermediação e agenciamento de serviços e negócios em geral, exceto imobiliários",
-                    "code": "74.90-1-04"
-                  },
-                  {
-                    "text": "Aluguel de outras máquinas e equipamentos comerciais e industriais não especificados anteriormente, sem operador",
-                    "code": "77.39-0-99"
-                  },
-                  {
-                    "text": "Serviços combinados de escritório e apoio administrativo",
-                    "code": "82.11-3-00"
-                  },
-                  {
-                    "text": "Preparação de documentos e serviços especializados de apoio administrativo não especificados anteriormente",
-                    "code": "82.19-9-99"
-                  },
-                  {
-                    "text": "Treinamento em informática",
-                    "code": "85.99-6-03"
-                  },
-                  {
-                    "text": "Treinamento em desenvolvimento profissional e gerencial",
-                    "code": "85.99-6-04"
-                  },
-                  {
-                    "text": "Reparação e manutenção de computadores e de equipamentos periféricos",
-                    "code": "95.11-8-00"
+                    "text": "Comércio varejista de animais vivos e de artigos e alimentos para animais de estimação",
+                    "code": "47.89-0-04"
                   }
                 ],
                 "qsa": [
-                  {
-                    "qual": "37-Sócio Pessoa Jurídica Domiciliado no Exterior",
-                    "pais_origem": "PAÍSES BAIXOS (HOLANDA)",
-                    "nome_rep_legal": "CARLOS FERNANDO COUTO DE OLIVEIRA SOUTO",
-                    "qual_rep_legal": "17-Procurador",
-                    "nome": "DELL GLOBAL BV"
-                  },
-                  {
-                    "qual": "05-Administrador",
-                    "nome": "JOAO BATISTA RIBEIRO"
-                  },
-                  {
-                    "qual": "37-Sócio Pessoa Jurídica Domiciliado no Exterior",
-                    "pais_origem": "PAÍSES BAIXOS (HOLANDA)",
-                    "nome_rep_legal": "CARLOS FERNANDO COUTO DE OLIVEIRA SOUTO",
-                    "qual_rep_legal": "17-Procurador",
-                    "nome": "DELL GLOBAL HOLDINGS III B.V."
-                  },
-                  {
-                    "qual": "05-Administrador",
-                    "nome": "DIEGO TOMASETTO PUERTA"
-                  }
+                  
                 ],
                 "situacao": "ATIVA",
-                "bairro": "INDUSTRIAL",
-                "logradouro": "AV INDUSTRIAL BELGRAF",
-                "numero": "400",
-                "cep": "92.990-000",
-                "municipio": "ELDORADO DO SUL",
-                "porte": "DEMAIS",
-                "abertura": "24/06/1993",
-                "natureza_juridica": "206-2 - Sociedade Empresária Limitada",
-                "cnpj": "72.381.189/0001-10",
-                "ultima_atualizacao": "2021-07-26T15:06:28.409Z",
+                "bairro": "CENTRO",
+                "logradouro": "R JOAO DE PASSOS",
+                "numero": "484",
+                "cep": "12.960-000",
+                "municipio": "NAZARE PAULISTA",
+                "porte": "MICRO EMPRESA",
+                "abertura": "26/01/2016",
+                "natureza_juridica": "213-5 - Empresário (Individual)",
+                "fantasia": "CAOBELEREIRO",
+                "cnpj": "24.048.051/0001-51",
+                "ultima_atualizacao": "2021-06-25T20:42:53.845Z",
                 "status": "OK",
-                "fantasia": "",
                 "complemento": "",
+                "email": "",
                 "efr": "",
                 "motivo_situacao": "",
                 "situacao_especial": "",
                 "data_situacao_especial": "",
-                "capital_social": "930607325.00",
+                "capital_social": "3000.00",
                 "extra": {
                   
                 },
@@ -230,10 +190,16 @@ class SearchTest extends TestCase {
                   "database": true
                 }
               }'
-        ]
+            ],
+
+            "ERROR TOO MANY REQUESTS" => [
+              '1',
+              '{
+                "status": "ERROR",
+                "message": "Espere um minuto para tentar fazer uma nova requisição!",
+                "errorCode": 101
+              }'
+            ]
         ];
     }
-
 }
-
-?>

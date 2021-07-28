@@ -10,7 +10,8 @@ $cnpj = $_GET['cnpj'];
 }
 
 $resut = $mySearch->getDataFromCNPJ($cnpj);
-print_r($resut);
+
+print_r(json_encode($resut));
 
 
 ?>

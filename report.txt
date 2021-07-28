@@ -1,4 +1,6 @@
-Search
+Search (AkaSacci\tests\Search)
  [x] Get data from c n p j default usage with data set "GET CNPJ Prefeitura de Bom Jesus dos Perdões"
- [ ] Get data from c n p j default usage with data set "GET CNPJ DELL"
+ [x] Get data from c n p j default usage with data set "GET CNPJ JHONATAN CARECA"
+ [x] Get data from c n p j default usage with data set "GET CNPJ Cãobeleleiro Banho e Tosa"
+ [x] Get data from c n p j default usage with data set "ERROR TOO MANY REQUESTS"
 
